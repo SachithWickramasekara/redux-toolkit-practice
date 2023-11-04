@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import Cards from "../components/cards/cards";
 import { useDispatch } from "react-redux";
 import { remove } from "../store/cartSlice";
+import Header from "../components/header/Header";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 const Cart = () => {
   const dispatch = useDispatch();
 
@@ -28,8 +30,14 @@ const Cart = () => {
   ));
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 w-full gap-4 p-6 h-full">
-      {cards}
+    <div>
+      <div className="flex justify-center items-center gap-2">
+        <AiOutlineShoppingCart size={30} />
+        <Header Header={"Your Cart"} />
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 w-full gap-4 p-6 h-full">
+        {cards}
+      </div>
     </div>
   );
 };
